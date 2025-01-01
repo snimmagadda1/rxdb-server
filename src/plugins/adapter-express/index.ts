@@ -18,6 +18,7 @@ export const RxServerAdapterExpress: RxServerAdapter<Express, Request, Response>
     setCors(serverApp, path, cors) {
         serverApp.use('/' + path + '/*', expressCors({
             origin: cors,
+            credentials: true,
             // some legacy browsers (IE11, various SmartTVs) choke on 204
             optionsSuccessStatus: 200
         }));

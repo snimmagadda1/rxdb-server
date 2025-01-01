@@ -141,6 +141,7 @@ export class RxServerReplicationEndpoint<ServerAppType, AuthType, RxDocType> imp
                 }
             });
             if (nonAllowedRow) {
+                console.error('NONALLOWED ROW', nonAllowedRow);
                 adapter.closeConnection(res, 403, 'Forbidden');
                 return;
             }
@@ -167,6 +168,7 @@ export class RxServerReplicationEndpoint<ServerAppType, AuthType, RxDocType> imp
                 } as typeof row;
             });
             if (hasInvalidChange) {
+                console.error('NONALLOWED ROW', hasInvalidChange);
                 adapter.closeConnection(res, 403, 'Forbidden');
                 return;
             }
